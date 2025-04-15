@@ -13,6 +13,15 @@ const RULE_KEY = "muto.rules";
 
 
 const defaultCode = `
+((sum Y) (G)) = Y
+(sum Y) (G X Xs...) = (sum (+ Y X)) (G Xs...)
+sum A = (sum 0) A
+
+((compose) X) = X
+(compose Fs... F) X = (compose Fs...) (F X)
+
+(curry F S...) X... = F S... X...
+
 ((map F B) (H)) = B
 (map F (G Ys...)) (H X Xs...) = (map F (G Ys... (F X))) (H Xs...)
 map F A = (map F ($)) A
@@ -27,11 +36,20 @@ filter P A = (filter P ($)) A
 (fold F Z) (G X Xs...) = (fold F (F Z X)) (G Xs...)
 fold F Z A = (fold F Z) A
 
-(curry F S...) X... = F S... X...
 
 
+(example-1) = (sum ($ 1 2 3))
 
-try-this-in-the-query = (filter string? ($ 1 "2" 3 4 "5"))
+(example-2) = (h 3 5)
+h A = string
+
+(example-3) = (f 5)
+f = (compose string (curry * 2) (curry + 10))
+
+(example-4) = (g 3 5)
+g N = (compose (curry * N) (curry + 10))
+
+(example-5) = (filter string? ($ 1 "2" 3 4 "5"))
 `.trim()
 
 // load + save code
