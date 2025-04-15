@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>mutO IDE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../wasm_exec.js"></script>
+  <script type="module" src="./ide.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <style>
+    html {
+      height: 100%;
+      box-sizing: border-box;
+    }
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      padding: 1em;
+      font-family: sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      background-color: #f0f0f0;
+    }
+
+    #left, #right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    #left {
+      border-right: 1px solid #ccc;
+    }
+
+    textarea {
+      font-family: monospace;
+      font-size: 1em;
+      border: none;
+      outline: none;
+      padding: 1em;
+    }
+
+    #rules {
+      flex: 1;
+      resize: none;
+    }
+
+    #query {
+      border-top: 1px solid #ccc;
+      padding: 0.5em;
+      display: flex;
+      gap: 0.5em;
+      align-items: center;
+    }
+
+    #input {
+      flex: 1;
+      font-size: 1em;
+      padding: 0.5em;
+      height: 6em;
+      resize: none;
+    }
+
+    #result {
+      flex: 1;
+      resize: none;
+      overflow-y: scroll;
+    }
+
+    button {
+      font-size: 1em;
+      padding: 0.5em 1em;
+    }
+
+    textarea, input, code, pre {
+      font-family: 'Fira Code', monospace;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      textarea, input, code, pre {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div id="left">
+  <textarea id="rules" placeholder="Write mutO rules here..."></textarea>
+</div>
+<div id="right">
+  <textarea id="result" readonly></textarea>
+  <div id="query">
+    <textarea id="input" placeholder="Type your query..."></textarea>
+    <button id="run">Run</button>
+  </div>
+</div>
+</body>
+</html>

@@ -1,23 +1,16 @@
 package main
 
 import (
-	replProgram "github.com/SSripilaipong/muto/builder/repl"
-
 	"syscall/js"
 )
 
-func Interpret(this js.Value, args []js.Value) interface{} {
+func Interpret(this js.Value, args []js.Value) any {
 	input := args[0].String()
 
 	result, _ := interpret(input)
 
 	return js.ValueOf(result)
 }
-
-var reader = newBufferedReader()
-var printer = newBufferedPrinter()
-
-var prog = replProgram.New(reader, printer)
 
 func interpret(code string) (string, bool) {
 	reader.Set(code)

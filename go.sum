@@ -6,6 +6,12 @@ github.com/SSripilaipong/muto v0.0.4-0.20250414193217-76dd83f83ea0 h1:ZvUl/zLbNM
 github.com/SSripilaipong/muto v0.0.4-0.20250414193217-76dd83f83ea0/go.mod h1:Li/qRZCl97e6x2IEVtiXsVE21US/eMwjT9/jA+zVI4E=
 github.com/SSripilaipong/muto v0.0.4-0.20250414194322-ecf22fc05451 h1:fCizPOyG1SeI7VNIQ2+PCYemE6mRJvTAV53LTSxAbtc=
 github.com/SSripilaipong/muto v0.0.4-0.20250414194322-ecf22fc05451/go.mod h1:Li/qRZCl97e6x2IEVtiXsVE21US/eMwjT9/jA+zVI4E=
+github.com/SSripilaipong/muto v0.0.4-0.20250415161204-8bb3cc762353 h1:h49kuWAr4a9UxeYJPlO20eavGWWuVugke8aYE8FInLA=
+github.com/SSripilaipong/muto v0.0.4-0.20250415161204-8bb3cc762353/go.mod h1:Li/qRZCl97e6x2IEVtiXsVE21US/eMwjT9/jA+zVI4E=
+github.com/SSripilaipong/muto v0.0.4-0.20250415165613-d862768bc0fb h1:MbCJxLvh0kcg3p6kvAqWMVa1vwFYDh0zKaGVkll8Psc=
+github.com/SSripilaipong/muto v0.0.4-0.20250415165613-d862768bc0fb/go.mod h1:Li/qRZCl97e6x2IEVtiXsVE21US/eMwjT9/jA+zVI4E=
+github.com/SSripilaipong/muto v0.0.4-0.20250415170626-7f7967d478dc h1:u2XLsyZiTzds+Kg8416aLKIw3/DaO/pmu2tXkD+0KGw=
+github.com/SSripilaipong/muto v0.0.4-0.20250415170626-7f7967d478dc/go.mod h1:Li/qRZCl97e6x2IEVtiXsVE21US/eMwjT9/jA+zVI4E=
 github.com/chzyer/logex v1.2.1/go.mod h1:JLbx6lG2kDbNRFnfkgvh4eRJRPX1QCoOIWomwysCBrQ=
 github.com/chzyer/readline v1.5.1 h1:upd/6fQk4src78LMRzh5vItIt361/o4uq553V8B5sGI=
 github.com/chzyer/readline v1.5.1/go.mod h1:Eh+b79XXUwfKfcPLepksvw2tcLE/Ct21YObkaSkeBlk=
