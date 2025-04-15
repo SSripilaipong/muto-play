@@ -22,7 +22,7 @@ func Execute(this js.Value, args []js.Value) any {
 }
 
 func execute(input string) error {
-	syntaxNode, err := resultParser.ParseNode(input).Return()
+	syntaxNode, err := resultParser.ParseNakedObjectMultilines(input).Return()
 	if err != nil {
 		return err
 	}
