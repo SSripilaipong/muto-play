@@ -38,18 +38,18 @@ fold F Z A = (fold F Z) A
 
 
 
-(example-1) = (sum ($ 1 2 3))
+example-1 = sum ($ 1 2 3)
 
-(example-2) = (h 3 5)
+example-2 = h 3 5
 h A = string
 
-(example-3) = (f 5)
+example-3 = f 5
 f = (compose string (curry * 2) (curry + 10))
 
-(example-4) = (g 3 5)
+example-4 = g 3 5
 g N = (compose (curry * N) (curry + 10))
 
-(example-5) = (filter string? ($ 1 "2" 3 4 "5"))
+example-5 = filter string? ($ 1 "2" 3 4 "5")
 `.trim()
 
 // load + save code
