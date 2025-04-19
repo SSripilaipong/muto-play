@@ -73,7 +73,7 @@ WebAssembly.instantiateStreaming(fetch("ide.wasm"), go.importObject).then((resul
             resultArea.value += `⚠️ compile error: ${err}\n\n`;
         }
 
-        resultArea.value += `µ> ${query}\n`;
+        resultArea.value += `µ> (${query})\n`;
         try {
             const output = execute(query);
             resultArea.value += output.length > 0 ? `${output}\n\n` : '\n';

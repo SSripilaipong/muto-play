@@ -26,7 +26,7 @@ func execute(input string) error {
 	if err != nil {
 		return err
 	}
-	builder := mutationRuleBuilder.New(syntaxNode)
+	builder := mutationRuleBuilder.NewLiteral(syntaxNode)
 	node := builder.Build(parameter.New())
 	if node.IsEmpty() {
 		return fmt.Errorf("cannot build node")
