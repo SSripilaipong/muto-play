@@ -4,9 +4,8 @@ import (
 	"fmt"
 	"syscall/js"
 
-	mutationRuleBuilder "github.com/SSripilaipong/muto/core/mutation/rule/builder"
-	"github.com/SSripilaipong/muto/core/pattern/parameter"
 	resultParser "github.com/SSripilaipong/muto/parser/result"
+	"github.com/SSripilaipong/muto/syntaxtree/result"
 )
 
 func Execute(this js.Value, args []js.Value) any {
@@ -26,8 +25,7 @@ func execute(input string) error {
 	if err != nil {
 		return err
 	}
-	builder := mutationRuleBuilder.NewLiteral(syntaxNode)
-	node := builder.Build(parameter.New())
+	node := prog.BuildNode(result.UnsafeNodeToObject(syntaxNode))
 	if node.IsEmpty() {
 		return fmt.Errorf("cannot build node")
 	}
