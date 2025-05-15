@@ -12,45 +12,98 @@ document.addEventListener("keydown", (e) => {
 const RULE_KEY = "muto.rules";
 
 
-const defaultCode = `
-((sum Y) (G)) = Y
-(sum Y) (G X Xs...) = (sum (+ Y X)) (G Xs...)
-sum A = (sum 0) A
+const defaultCode = String.raw`
+example-1 = + 1 2
 
-((compose) X) = X
+
+example-2 = f1 3
+f1 A = string (* 10 A)
+
+
+example-3 = f2 9
+f2 = * 100
+
+
+example-4 = sum ($ 1 2 3)
+sum (_ Y)        = ret Y
+sum (T A B S...) = sum (T (+ A B) S...)
+
+(ret X) = X
+
+
+example-5 = g 5
+g = (compose string f2)
+
+(compose) X         = ret X
 (compose Fs... F) X = (compose Fs...) (F X)
+
+
+example-6 = \X [+ 100 X] 23
+
+
+example-7 = (compose
+  (curry + 6)
+  \X [* 10 X]
+) 45
 
 (curry F S...) X... = F S... X...
 
-((map F B) (H)) = B
-(map F (G Ys...)) (H X Xs...) = (map F (G Ys... (F X))) (H Xs...)
-map F A = (map F ($)) A
 
-((filter P B) (H)) = B
-(filter P B) (H X Xs...) = (filter-case P B (H Xs...)) (P X) X
-(filter-case P (G Ys...) A) true X = (filter P (G Ys... X)) A
-(filter-case P B A) false X = (filter P B) A
-filter P A = (filter P ($)) A
+example-8 = $
+  (try t1 999)
+  (try t2 555)
+  (try t2 555 666)
+  (try t3 222)
 
-((fold F Z) (G)) = Z
-(fold F Z) (G X Xs...) = (fold F (F Z X)) (G Xs...)
-fold F Z A = (fold F Z) A
+t1 X   = ret 123
+t2 X Y = ret "abc"
+t3 111 = ret true
 
 
+example-9 = h ($ 1 "2" 3 4 "5")
+h = (compose
+  (curry map string)
+  (curry map (curry * 10))
+  (curry filter number?)
+)
 
-example-1 = sum ($ 1 2 3)
+map F A                        = (map' F ($)) A
+(map' _ B) (_)                 = ret B
+(map' F ($ Ys...)) (T X Xs...) = (map' F ($ Ys... (F X))) (T Xs...)
 
-example-2 = h 3 5
-h A = string
+filter P A                        = (filter' P ($)) A
+(filter' _ B) (_)                 = ret B
+(filter' P ($ Ys...)) (T X Xs...) = (match
+  \true  [(filter' P ($ Ys... X)) (T Xs...)]
+  \false [(filter' P ($ Ys...)  ) (T Xs...)]
+) (P X)
 
-example-3 = f 5
-f = (compose string (curry * 2) (curry + 10))
+(match Case Cases...) X Xs... = (match' (try Case X Xs...) Cases...) X Xs...
+(match) X Xs... = ret .not-match
+(match' (.value Y) Cases...) X Xs... = ret Y
+(match' .empty Cases...) = (match Cases...)
 
-example-4 = g 3 5
-g N = (compose (curry * N) (curry + 10))
 
-example-5 = filter string? ($ 1 "2" 3 4 "5")
-`.trim()
+example-10 = queries ({.x: 123, .y: 999.888} (.set .y "replaced!"))
+queries D = $
+  (D (.get .x))
+  (D (.get .y))
+
+
+example-11 = (new-person "Shane" "Lnw" 1998) (.age-at 2025)
+
+new-person FirstName LastName BirthYear = person {
+  .first: FirstName,
+  .last: LastName,
+  .birth-year: BirthYear,
+}
+
+(person P) M = (match
+  \.first         [P (.get .first)]
+  \.last          [P (.get .last)]
+  \(.age-at Year) [- Year (P (.get .birth-year))]
+) M
+`.trimStart()
 
 // load + save code
 codeArea.value = localStorage.getItem(RULE_KEY) || defaultCode;
