@@ -93,8 +93,8 @@ queries D = $
 example-11 = (new-person "Shane" "Lnw" 1998) (.age-at 2025)
 
 new-person FirstName LastName BirthYear = person {
-  .first: FirstName,
-  .last: LastName,
+  .first:      FirstName,
+  .last:       LastName,
   .birth-year: BirthYear,
 }
 
