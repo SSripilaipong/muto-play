@@ -14,10 +14,14 @@ func Execute(this js.Value, args []js.Value) any {
 
 	err := execute(input)
 	if err != nil {
-		return js.ValueOf(err.Error())
+		return js.ValueOf(map[string]any{
+			"err": err.Error(),
+		})
 	}
 
-	return js.ValueOf(printer.ReadPrintBuffer())
+	return js.ValueOf(map[string]any{
+		"result": printer.ReadPrintBuffer(),
+	})
 }
 
 func execute(input string) error {

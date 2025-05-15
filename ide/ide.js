@@ -9,6 +9,26 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
+const textAreaKeyDownHandler = function(e) {
+    if (e.key === 'Tab') {
+        e.preventDefault();
+
+        const textarea = e.target;
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+
+        // Insert two spaces
+        const value = textarea.value;
+        textarea.value = value.substring(0, start) + '  ' + value.substring(end);
+
+        // Move cursor after the inserted spaces
+        textarea.selectionStart = textarea.selectionEnd = start + 2;
+    }
+}
+
+codeArea.addEventListener('keydown', textAreaKeyDownHandler);
+objectInput.addEventListener('keydown', textAreaKeyDownHandler);
+
 const RULE_KEY = "muto.rules";
 
 
@@ -120,21 +140,20 @@ WebAssembly.instantiateStreaming(fetch("ide.wasm"), go.importObject).then((resul
         const query = objectInput.value.trim();
         if (!query) return;
 
-        try {
-            loadCode(rules);
-        } catch (err) {
-            resultArea.value += `⚠️ compile error: ${err}\n\n`;
+        const { err: compileError } = loadCode(rules);
+        if (compileError) {
+            resultArea.value += `⚠️ compile error: ${compileError}\n\n`;
+        } else {
+            resultArea.value += `µ> (${query})\n`;
+            const {result: output, err: executeError} = execute(query);
+            if (executeError) {
+                resultArea.value += `⚠️ execution error: ${executeError}\n\n`;
+            } else {
+                resultArea.value += output.length > 0 ? `${output}\n\n` : '\n';
+            }
         }
 
-        resultArea.value += `µ> (${query})\n`;
-        try {
-            const output = execute(query);
-            resultArea.value += output.length > 0 ? `${output}\n\n` : '\n';
-            resultArea.scrollTop = resultArea.scrollHeight;
-        } catch (err) {
-            resultArea.value += `⚠️ execution error: ${err}\n\n`;
-        }
-
+        resultArea.scrollTop = resultArea.scrollHeight;
         objectInput.value = "";
         objectInput.focus();
     };

@@ -13,9 +13,14 @@ func LoadCode(this js.Value, args []js.Value) any {
 	err := loadCode(input)
 	if err != nil {
 		printer.Clear()
-		return js.ValueOf(err.Error())
+		return js.ValueOf(map[string]any{
+			"err": err.Error(),
+		})
 	}
-	return js.ValueOf(printer.ReadPrintBuffer())
+
+	return js.ValueOf(map[string]any{
+		"result": printer.ReadPrintBuffer(),
+	})
 }
 
 func loadCode(code string) error {
