@@ -48,14 +48,9 @@ example-4 = sum ($ 1 2 3)
 sum (_ Y)        = ret Y
 sum (T A B S...) = sum (T (+ A B) S...)
 
-(ret X) = X
-
 
 example-5 = g 5
 g = (compose string f2)
-
-(compose) X         = ret X
-(compose Fs... F) X = (compose Fs...) (F X)
 
 
 example-6 = \X [+ 100 X] 23
@@ -65,8 +60,6 @@ example-7 = (compose
   (curry + 6)
   \X [* 10 X]
 ) 45
-
-(curry F S...) X... = F S... X...
 
 
 example-8 = $
@@ -86,22 +79,6 @@ h = (compose
   (curry map (curry * 10))
   (curry filter number?)
 )
-
-map F A                        = (map' F ($)) A
-(map' _ B) (_)                 = ret B
-(map' F ($ Ys...)) (T X Xs...) = (map' F ($ Ys... (F X))) (T Xs...)
-
-filter P A                        = (filter' P ($)) A
-(filter' _ B) (_)                 = ret B
-(filter' P ($ Ys...)) (T X Xs...) = (match
-  \true  [(filter' P ($ Ys... X)) (T Xs...)]
-  \false [(filter' P ($ Ys...)  ) (T Xs...)]
-) (P X)
-
-(match Case Cases...) X Xs... = (match' (try Case X Xs...) Cases...) X Xs...
-(match) X Xs... = ret .not-match
-(match' (.value Y) Cases...) X Xs... = ret Y
-(match' .empty Cases...) = (match Cases...)
 
 
 example-10 = queries ({.x: 123, .y: 999.888} (.set .y "replaced!"))
