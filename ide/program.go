@@ -12,7 +12,7 @@ import (
 
 var reader = newCliReaderWrapper(common.NewBufferedReader())
 var printer = common.NewBufferedPrinter()
-var builtins = global.NewBuiltinModule(global.NewMutators(reader, printer))
+var builtins = global.NewModule(reader, printer)
 var prog = replProgram.New(mutoProgram.New(module.BuildModuleFromStatements(nil, builtins)), printer)
 
 func newProgram(st []base.Statement) replProgram.Wrapper {
