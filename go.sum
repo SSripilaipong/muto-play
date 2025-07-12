@@ -52,6 +52,8 @@ github.com/SSripilaipong/muto v0.0.4-0.20250711175818-8078fd19be52 h1:PA60OQmWqb
 github.com/SSripilaipong/muto v0.0.4-0.20250711175818-8078fd19be52/go.mod h1:5SJo/mgc9JyVAyHlGpyqn0LNfZ6WmugusQWR4fyBrh0=
 github.com/SSripilaipong/muto v0.0.4-0.20250711194844-d1ffd2c18828 h1:gASYi8oSs0Sf26hundVCzPhyf4zJRHJvnh55c3kJQ1Q=
 github.com/SSripilaipong/muto v0.0.4-0.20250711194844-d1ffd2c18828/go.mod h1:5SJo/mgc9JyVAyHlGpyqn0LNfZ6WmugusQWR4fyBrh0=
+github.com/SSripilaipong/muto v0.0.4-0.20250712095513-00684b5b6e1a h1:7XijdikFGDOFCHzFy32G7+PUoiETwgcOYgYhaCQUtCY=
+github.com/SSripilaipong/muto v0.0.4-0.20250712095513-00684b5b6e1a/go.mod h1:5SJo/mgc9JyVAyHlGpyqn0LNfZ6WmugusQWR4fyBrh0=
 github.com/chzyer/logex v1.2.1/go.mod h1:JLbx6lG2kDbNRFnfkgvh4eRJRPX1QCoOIWomwysCBrQ=
 github.com/chzyer/readline v1.5.1 h1:upd/6fQk4src78LMRzh5vItIt361/o4uq553V8B5sGI=
 github.com/chzyer/readline v1.5.1/go.mod h1:Eh+b79XXUwfKfcPLepksvw2tcLE/Ct21YObkaSkeBlk=
