@@ -3,6 +3,7 @@ package main
 import (
 	replProgram "github.com/SSripilaipong/muto/builder/repl/core/program"
 	"github.com/SSripilaipong/muto/builtin/global"
+	"github.com/SSripilaipong/muto/common/slc"
 	"github.com/SSripilaipong/muto/core/module"
 	mutoProgram "github.com/SSripilaipong/muto/program"
 	"github.com/SSripilaipong/muto/syntaxtree/base"
@@ -15,7 +16,7 @@ var builtins = global.NewModule()
 var prog = newProgram(nil)
 
 func newProgram(st []base.Statement) replProgram.Wrapper {
-	mod := module.BuildModuleFromStatements(st).
+	mod := module.BuildModule(base.NewModule(slc.Pure(base.NewFile(st)))).
 		Init(builtins, NewPortal(printer))
 	return replProgram.New(mutoProgram.New(mod), printer)
 }

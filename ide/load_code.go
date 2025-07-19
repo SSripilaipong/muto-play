@@ -24,11 +24,11 @@ func LoadCode(this js.Value, args []js.Value) any {
 }
 
 func loadCode(code string) error {
-	pkg, err := fileParser.ParsePackageFromString(code).Return()
+	mod, err := fileParser.ParseModuleFromString(code).Return()
 	if err != nil {
 		return err
 	}
-	files := pkg.Files()
+	files := mod.Files()
 	if len(files) == 0 {
 		prog = newProgram(nil)
 		return nil
