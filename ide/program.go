@@ -10,13 +10,12 @@ import (
 	"github.com/SSripilaipong/muto-play/common"
 )
 
-var reader = newCliReaderWrapper(common.NewBufferedReader())
 var printer = common.NewBufferedPrinter()
-var builtins = global.NewModule(reader, printer)
+var builtins = global.NewModule()
 var prog = newProgram(nil)
 
 func newProgram(st []base.Statement) replProgram.Wrapper {
-	mod := module.BuildModuleFromStatements(st)
-	mod.LoadGlobal(builtins)
+	mod := module.BuildModuleFromStatements(st).
+		Init(builtins, NewPortal(printer))
 	return replProgram.New(mutoProgram.New(mod), printer)
 }

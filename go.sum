@@ -58,6 +58,10 @@ github.com/SSripilaipong/muto v0.0.4-0.20250713163403-ebbe5f6dd0d3 h1:ZJUdOdQjXf
 github.com/SSripilaipong/muto v0.0.4-0.20250713163403-ebbe5f6dd0d3/go.mod h1:5SJo/mgc9JyVAyHlGpyqn0LNfZ6WmugusQWR4fyBrh0=
 github.com/SSripilaipong/muto v0.0.4-0.20250713172003-f1e407fdac9b h1:lAerbANLQUHeo5FFx+UBtqri56l5BBLnGdklFSdHWQw=
 github.com/SSripilaipong/muto v0.0.4-0.20250713172003-f1e407fdac9b/go.mod h1:5SJo/mgc9JyVAyHlGpyqn0LNfZ6WmugusQWR4fyBrh0=
+github.com/SSripilaipong/muto v0.0.4-0.20250719121607-72ec1441b3c8 h1:5gqLVcgMErTMKQ6GjQcZetvMAIQorlv488O37HekHJs=
+github.com/SSripilaipong/muto v0.0.4-0.20250719121607-72ec1441b3c8/go.mod h1:5SJo/mgc9JyVAyHlGpyqn0LNfZ6WmugusQWR4fyBrh0=
+github.com/SSripilaipong/muto v0.0.4-0.20250719125142-12e1a24468e8 h1:vqCiLfbLpYfC8PJPrBJDSArVRxoxVxuUgbt4N/UGnYI=
+github.com/SSripilaipong/muto v0.0.4-0.20250719125142-12e1a24468e8/go.mod h1:5SJo/mgc9JyVAyHlGpyqn0LNfZ6WmugusQWR4fyBrh0=
 github.com/chzyer/logex v1.2.1/go.mod h1:JLbx6lG2kDbNRFnfkgvh4eRJRPX1QCoOIWomwysCBrQ=
 github.com/chzyer/readline v1.5.1 h1:upd/6fQk4src78LMRzh5vItIt361/o4uq553V8B5sGI=
 github.com/chzyer/readline v1.5.1/go.mod h1:Eh+b79XXUwfKfcPLepksvw2tcLE/Ct21YObkaSkeBlk=
