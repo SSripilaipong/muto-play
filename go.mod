@@ -3,7 +3,7 @@ module github.com/SSripilaipong/muto-play
 go 1.23.8
 
 require (
-	github.com/SSripilaipong/muto v0.0.4-0.20250719165519-0a5442470490 // indirect
+	github.com/SSripilaipong/muto v0.0.4-0.20250720174818-cd370dffccc0 // indirect
 	github.com/chzyer/readline v1.5.1 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.4 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
